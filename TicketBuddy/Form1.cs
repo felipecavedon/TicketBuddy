@@ -180,24 +180,6 @@ namespace TicketBuddy
         }
 
        
-        private void Refresh_Click(object sender, EventArgs e)
-        {
-            comboBox1.Items.Clear();
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Felipe\source\repos\TicketBuddy\TicketBuddy\Database1.mdf;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand("select * from Tickets", con);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            SqlDataReader dr;
-            dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                int Id = dr.GetInt32(0);
-                comboBox1.Items.Add(Id);
-            }
-            con.Close();
-        }
-
-
         private void button11_Click(object sender, EventArgs e)
         {
             string message = "Sure you wanna delete it?";
